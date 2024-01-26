@@ -16,10 +16,8 @@ const app = express()
 app.use(morgan('dev'))
 app.use(helmet())
 app.use(cors())
-app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-app.use(cors())
 app.use(
   compression({
     level: 6,
