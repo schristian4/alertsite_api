@@ -4,7 +4,6 @@ import helmet from 'helmet'
 import cors from 'cors'
 
 const bodyParser = require('body-parser')
-const compression = require('compression')
 import * as middlewares from './middlewares'
 import api from './api'
 import MessageResponse from './interfaces/MessageResponse'
@@ -18,11 +17,7 @@ app.use(helmet())
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-app.use(
-  compression({
-    level: 6,
-  })
-)
+
 app.get<{}, MessageResponse>('/', (req, res) => {
   res.json({
     message: 'Welcome to the AlertSite Technical benchmark API 🌎✨👋',
